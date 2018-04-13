@@ -1,0 +1,16 @@
+@charset "utf-8";
+/*
+こちらに自由に記述ください。
+*/
+
+/*PCのみ適応されるCSS*/
+@media screen and (min-width: 768px) {
+
+
+}
+
+/*スマホのみ適応されるCSS*/
+@media screen and (max-width: 767px) {
+
+
+}

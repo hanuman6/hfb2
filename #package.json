@@ -1,0 +1,38 @@
+{
+  "name": "hf-build",
+  "version": "1.0.0",
+  "description": "A Frontend Web Build Pack",
+  "homepage": "https://github.com/HOT-FACTORY/hff2",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "start": "webpack-dev-server",
+    "watch": "webpack --watch --progress"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HOT-FACTORY/hff2"
+  },
+  "author": "Yoshihiro Fujita",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "latest",
+    "babel-core": "latest",
+    "babel-loader": "latest",
+    "babel-preset-env": "latest",
+    "browser-sync": "latest",
+    "css-loader": "latest",
+    "cssnano": "latest",
+    "jquery": "latest",
+    "node-sass": "latest",
+    "postcss-loader": "latest",
+    "sass-loader": "latest",
+    "style-loader": "latest",
+    "url-loader": "latest",
+    "webpack": "latest",
+    "webpack-cli": "latest",
+    "webpack-dev-server": "latest",
+    "webpack-stream": "latest"
+  }
+}

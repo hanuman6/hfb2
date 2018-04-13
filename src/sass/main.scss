@@ -1,0 +1,47 @@
+@charset "utf-8";
+//============================================================
+//    メインCSS
+//============================================================
+@import "components/reset";
+@import "setting";
+@import "components/base";
+/*--------------------------------------------
+共通設定
+---------------------------------------------*/
+body {
+  background-color: $bg;
+  color: $tc;
+  font-size: 14px;
+  line-height: 1.4;
+	font-family: $font;
+  -webkit-font-smoothing: antialiased;
+}
+//標準リンク処理等
+a {
+  color: $lc;
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+    outline: 0;
+    transition: all 300ms $ease;
+  }
+  &:active {
+    text-decoration: none;
+    outline: 0;
+  }
+  &:focus {
+    border: 0 none;
+  }
+}
+//============================================================
+@media screen and (min-width: $w-sp + 1) {@import "pc";}
+//============================================================
+
+//============================================================
+@media screen and (max-width: $w-sp) {@import "sp";}
+//============================================================
+
+//============================================================
+//    その他部分
+//============================================================
+@import "addon/print";  //印刷

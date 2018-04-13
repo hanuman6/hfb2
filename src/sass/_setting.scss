@@ -1,0 +1,46 @@
+@charset "utf-8";
+
+//============================================================
+//    基本設定
+//============================================================
+
+// フォント
+$font: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Yu Gothic", YuGothic, Verdana, Meiryo, sans-serif;
+
+// Webフォント
+$webfont1: 'Montserrat', sans-serif;
+
+// カラーテーマ5種
+$cMain: #d70c18;
+$c2: #91aa9d;
+$c3: #193441;
+$c4: #3e606f;
+$c5: #d1dbbd;
+
+// グレーテーマ5種
+$grey1: #f2f2f2;
+$grey2: #efefef;
+$grey3: #ccc;
+$black1: #101010;
+$black2: #585858;
+
+//警告色
+$attention: #ff405f;
+
+// サイト横幅
+$w-site : 1080px;
+
+//ブレイクポイント
+$w-sp: 767px;
+
+// 標準テキストカラー
+$tc: #222;
+
+// 標準背景色
+$bg: #f2f2f2;
+
+// 標準リンクカラー
+$lc: #69c;
+
+// 標準イージング
+$ease: cubic-bezier(0.215, 0.61, 0.355, 1);

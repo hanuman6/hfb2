@@ -1,0 +1,87 @@
+@charset "utf-8";
+//============================================================
+//    基本部分
+//============================================================
+// 基本ピクセル
+$px: 5;
+/*--------------------------------------------
+  汎用クラス
+---------------------------------------------*/
+/*クリアフィックス*/
+@mixin cf {
+	*zoom: 1;
+	&:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+	&:before {
+		content: "";
+		display: table;
+	}
+}
+.cf{@include cf}
+/*クリアフィックス(簡易)*/
+.oh{overflow: hidden;}
+/*テキストサイズ変更*/
+@for $i from 9 through 23 {
+  .fz#{$i + 1} {
+    font-size:#{$i + 1}px!important;
+  }
+}
+/*文字の太さ*/
+.fwb{font-weight:bold!important;}
+.fwn{font-weight:normal!important;}
+/*文字の位置*/
+.tac{text-align: center!important;}
+.tal{text-align: left!important;}
+.tar{text-align: right!important;}
+/*マージンレフト*/
+@for $i from 0 through 6 {
+  .mr#{$i * $px} {
+    margin-left:#{$i * $px}px!important;
+  }
+}
+/*マージントップ*/
+@for $i from 0 through 6 {
+  .mr#{$i * $px} {
+    margin-top:#{$i * $px}px!important;
+  }
+}
+/*マージンボトム*/
+@for $i from 0 through 12 {
+  .mb#{$i * $px} {
+    margin-bottom:#{$i * $px}px!important;
+  }
+}
+/*マージンライト*/
+@for $i from 0 through 6 {
+  .mr#{$i * $px} {
+    margin-right:#{$i * $px}px!important;
+  }
+}
+@media screen and (min-width: $w-sp + 1) {
+  .mb-xs{margin-bottom:#{$px * 1}px!important;}
+  .mb-s{margin-bottom:#{$px * 3}px!important;}
+  .mb-m{margin-bottom:#{$px * 6}px!important;}
+  .mb-l{margin-bottom:#{$px * 12}px!important;}
+  .mb-xl{margin-bottom:#{$px * 16}px!important;}
+}
+@media screen and (max-width: $w-sp) {
+  .mb-xs{margin-bottom:#{$px * 1}px!important;}
+  .mb-s{margin-bottom:#{$px * 2}px!important;}
+  .mb-m{margin-bottom:#{$px * 4}px!important;}
+  .mb-l{margin-bottom:#{$px * 8}px!important;}
+  .mb-xl{margin-bottom:#{$px * 10}px!important;}
+}
+
+@media screen and (min-width: $w-sp + 1) {
+  .sp {
+    display: none!important;
+  }
+}
+@media screen and (max-width: $w-sp) {
+  .pc {
+    display: none!important;
+  }
+}
