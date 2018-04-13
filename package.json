@@ -1,5 +1,5 @@
 {
-  "name": "hf-build2",
+  "name": "hfb2",
   "version": "1.0.0",
   "description": "A Frontend Web Build Pack",
   "main": "src/index.js",
