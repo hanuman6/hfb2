@@ -1,13 +1,10 @@
-// 外部モジュールを読み込み
-const modernizr = require('./js/lib/modernizr-custom.js');
-const userAgentChecker = require('./js/lib/userAgentChecker.js');
-const flexibility = require('./js/lib/flexibility.js');
+//外部モジュールの読み込み
+import isMobile from 'ismobilejs';
 
 // Sassの読み込み
 import './sass/main.scss';
 
 // 内製モジュールを読み込み
-//const es6 = require('./js/es6.js');
 import es6 from './js/es6.js';
 import es5 from './js/es5.js';
 
@@ -16,6 +13,39 @@ import es5 from './js/es5.js';
  *************************************************/
 
 es6.es6CheckFunc();
+
+if (isMobile) {
+  console.log('モバイル');
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+  // @media screen and (max-width: 780px) と同じ
+  var mql = window.matchMedia('screen and (max-width: 780px)');
+
+  function checkBreakPoint(mql) {
+    if (mql.matches) {
+      // スマホ向け
+      
+    } else {
+      // PC向け
+    }
+  }
+
+  // ブレイクポイントの瞬間に発火
+  mql.addListener(checkBreakPoint);
+
+  // 初回チェック
+  checkBreakPoint(mql);
+});
+
+function mq(device) {
+  if (window.matchMedia('(max-width:768px)').matches && device == "sp") {
+    return true;
+  } else if (window.matchMedia('(min-width:769px)').matches && device == "pc") {
+    return true;
+  }
+  return false;
+}
 
 /**************************************************
  * ES5(jQuery)実行
@@ -58,14 +88,23 @@ $(function(){
 
   }
 
-	// PCのみ
-	if(Modernizr.mq('only screen and (min-width: 768px)')) {
+  // @media screen and (max-width: 780px) と同じ
+  var mql = window.matchMedia('screen and (max-width: 780px)');
 
-	}
+  function checkBreakPoint(mql) {
+    if (mql.matches) {
+      // スマホ向け
+      console.log('sp');
+    } else {
+      // PC向け
+      console.log('pc');
+    }
+  }
 
-	// SPのみ
-	if(Modernizr.mq('only screen and (max-width: 767px)')) {
+  // ブレイクポイントの瞬間に発火
+  mql.addListener(checkBreakPoint);
 
-	}
+  // 初回チェック
+  checkBreakPoint(mql);
 
 });//end query

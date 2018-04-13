@@ -1,4 +1,7 @@
 const webpack = require('webpack');
+const path = require('path');
+const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
+
 module.exports = {
   // Mode指定
   mode: 'production', //productionで圧縮できるよ(基本development)
@@ -8,11 +11,14 @@ module.exports = {
     // 出力ファイルのディレクトリ名
     path: `${__dirname}/common/js`,
     // 出力ファイル名
-    filename: 'main.js'
+    filename: 'bundle.js',
+    // パブリックパス
+    publicPath: './'
   },
   // ローカル開発用環境を立ち上げる
   devServer: {
     contentBase: './',
+    watchContentBase: true,
     open: true
   },
   //devソースマップ
@@ -21,7 +27,12 @@ module.exports = {
   performance: { hints: false },
   //プラグイン
   plugins: [
-    new webpack.ProvidePlugin({ $: 'jquery', jQuery: 'jquery' })
+    new webpack.ProvidePlugin({ $: 'jquery', jQuery: 'jquery' }),
+    new BrowserSyncPlugin({
+      host: 'localhost',
+      port: 3000,
+      server: { baseDir: ['./'] }
+    })
   ],
   module: {
     rules: [
@@ -80,7 +91,7 @@ module.exports = {
         loader: 'url-loader',
         options: {
           limit: 200 * 1024, // 200KB以上だったら埋め込まずファイルとして分離する
-          name: '../common/img/[name].[ext]'
+          name: '../../common/img/[name].[ext]'
         }
       }
 
