@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
-const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
+const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+const WebpackBuildNotifierPlugin = require('webpack-build-notifier');
 
 module.exports = {
   // Mode指定
@@ -32,6 +33,10 @@ module.exports = {
       host: 'localhost',
       port: 3000,
       server: { baseDir: ['./'] }
+    }),
+    new WebpackBuildNotifierPlugin({
+      title: "HFB2 Webpack Build",
+      suppressSuccess: true
     })
   ],
   module: {
