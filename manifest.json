@@ -1,0 +1,12 @@
+{
+  "name": "HF-Build2",
+  "short_name": "hfb2",
+  "background_color": "#fc980c",
+  "icons": [{
+      "src": "/common/img/touch.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }],
+  "start_url": "./?utm_source=homescreen",
+  "display": "standalone"
+}

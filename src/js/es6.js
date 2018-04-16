@@ -4,6 +4,6 @@
 
 // --- 動作テスト -----------------------------------
 module.exports.es6CheckFunc = () => {
-	let es6 = 'ES6 is working';
-	console.log(es6);
+	let es6 = '[ES6 is working]';
+	console.info(es6);
 }

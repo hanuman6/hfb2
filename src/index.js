@@ -1,5 +1,6 @@
 //外部モジュールの読み込み
 import isMobile from 'ismobilejs';
+import userAgentChecker from './js/lib/userAgentChecker.js';
 
 // Sassの読み込み
 import './sass/main.scss';
@@ -13,39 +14,6 @@ import es5 from './js/es5.js';
  *************************************************/
 
 es6.es6CheckFunc();
-
-if (isMobile) {
-  console.log('モバイル');
-}
-
-document.addEventListener('DOMContentLoaded', function () {
-  // @media screen and (max-width: 780px) と同じ
-  var mql = window.matchMedia('screen and (max-width: 780px)');
-
-  function checkBreakPoint(mql) {
-    if (mql.matches) {
-      // スマホ向け
-      
-    } else {
-      // PC向け
-    }
-  }
-
-  // ブレイクポイントの瞬間に発火
-  mql.addListener(checkBreakPoint);
-
-  // 初回チェック
-  checkBreakPoint(mql);
-});
-
-function mq(device) {
-  if (window.matchMedia('(max-width:768px)').matches && device == "sp") {
-    return true;
-  } else if (window.matchMedia('(min-width:769px)').matches && device == "pc") {
-    return true;
-  }
-  return false;
-}
 
 /**************************************************
  * ES5(jQuery)実行
@@ -88,23 +56,23 @@ $(function(){
 
   }
 
-  // @media screen and (max-width: 780px) と同じ
-  var mql = window.matchMedia('screen and (max-width: 780px)');
+  // UA判定による発火切替
+  if (isMobile) {
+    console.info('[isMobile is SP]');
+  }
 
+  // PCとSPの発火切替
+  var mql = window.matchMedia('screen and (max-width: 780px)');
   function checkBreakPoint(mql) {
     if (mql.matches) {
       // スマホ向け
-      console.log('sp');
+      console.info('[matchMedia is SP]');
     } else {
       // PC向け
-      console.log('pc');
+      console.info('[matchMedia is PC]');
     }
   }
-
-  // ブレイクポイントの瞬間に発火
   mql.addListener(checkBreakPoint);
-
-  // 初回チェック
   checkBreakPoint(mql);
 
 });//end query
